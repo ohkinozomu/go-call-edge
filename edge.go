@@ -12,17 +12,18 @@ type CallEdge struct {
 }
 
 var builtInFunctions = []string{
-	"len",
 	"append",
-	"make",
-	"int64",
-	"uint32",
-	"string",
-	"uint64",
-	"int",
-	"float64",
 	"copy",
+	"float64",
+	"int",
 	"int32",
+	"int64",
+	"len",
+	"make",
+	"panic",
+	"string",
+	"uint32",
+	"uint64",
 }
 
 func contains(s []string, e string) bool {
