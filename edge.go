@@ -11,6 +11,29 @@ type CallEdge struct {
 	Callee string
 }
 
+var builtInFunctions = []string{
+	"len",
+	"append",
+	"make",
+	"int64",
+	"uint32",
+	"string",
+	"uint64",
+	"int",
+	"float64",
+	"copy",
+	"int32",
+}
+
+func contains(s []string, e string) bool {
+	for _, a := range s {
+		if a == e {
+			return true
+		}
+	}
+	return false
+}
+
 func GetCallEdges(f *ast.File) []CallEdge {
 	callEdges := []CallEdge{}
 	for _, d := range f.Decls {
@@ -29,11 +52,13 @@ func getCallEdges(d ast.Decl) []CallEdge {
 			for _, callExpr := range callExprs {
 				if _, ok := callExpr.Fun.(*ast.Ident); ok {
 					callee := callExpr.Fun.(*ast.Ident).Name
-					callEdge := CallEdge{
-						Caller: caller,
-						Callee: callee,
+					if !contains(builtInFunctions, caller) && !contains(builtInFunctions, callee) {
+						callEdge := CallEdge{
+							Caller: caller,
+							Callee: callee,
+						}
+						callEdges = append(callEdges, callEdge)
 					}
-					callEdges = append(callEdges, callEdge)
 				}
 			}
 

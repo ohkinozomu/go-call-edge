@@ -10,18 +10,6 @@ import (
 func TestGetCallEdges(t *testing.T) {
 	expect := []CallEdge{
 		CallEdge{
-			Caller: "Concat",
-			Callee: "make",
-		},
-		CallEdge{
-			Caller: "Concat",
-			Callee: "len",
-		},
-		CallEdge{
-			Caller: "Concat",
-			Callee: "append",
-		},
-		CallEdge{
 			Caller: "DynamicRows",
 			Callee: "newDynamicRowGroupReader",
 		}}
