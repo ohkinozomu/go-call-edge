@@ -14,6 +14,7 @@ type CallEdge struct {
 var builtInFunctions = []string{
 	"append",
 	"copy",
+	"float32",
 	"float64",
 	"int",
 	"int32",
@@ -22,6 +23,7 @@ var builtInFunctions = []string{
 	"make",
 	"panic",
 	"string",
+	"uintptr",
 	"uint32",
 	"uint64",
 }
