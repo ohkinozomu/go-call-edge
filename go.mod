@@ -1,5 +1,5 @@
 module github.com/ohkinozomu/go-call-edge
 
-go 1.19
+go 1.26.0
 
-require golang.org/x/tools v0.11.0
+require golang.org/x/tools v0.50.0
